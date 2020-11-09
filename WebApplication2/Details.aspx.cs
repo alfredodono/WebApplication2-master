@@ -15,6 +15,7 @@ namespace WebApplication2
 
     public partial class Details : System.Web.UI.Page
     {
+        String HRI;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] != null)
@@ -41,7 +42,7 @@ namespace WebApplication2
             }
             BindGrid();
 
-         // txtid.Text= Request.QueryString["Parameter"].ToString();
+          HRI = Request.QueryString["Parameter"].ToString();
 
         }
 
@@ -171,7 +172,7 @@ namespace WebApplication2
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ToString()))
             {
-                using (SqlCommand cmd = new SqlCommand("Select Nombre As 'Nombre' , IP As 'IP', Tipo as 'Type'   from [LUIS AGUILAR].[ADESCPDB].[dbo].[tMachines] where  Nombre LIKE'" + TextBox1.Text + "%'"))
+                using (SqlCommand cmd = new SqlCommand("Select ID As 'ID', Nombre As 'Nombre' , IP As 'IP', Tipo as 'Type'   from [LUIS AGUILAR].[ADESCPDB].[dbo].[tMachines] where  Nombre LIKE'" + TextBox1.Text + "%'"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
@@ -224,9 +225,10 @@ namespace WebApplication2
 
             if (output == "1")
            {
-               Response.Write("El usuario ya existe ?");
-               // lblmensaje.Text = "El usuario ya existe ?";
-              //  jolosoy.Text = "";
+                // Response.Write("El usuario ya existe ?");
+                // lblmensaje.Text = "El usuario ya existe ?";
+                //  jolosoy.Text = "";
+                lblmensaje.Text = "ya esta registrado";
            }
            else
             {
@@ -236,7 +238,7 @@ namespace WebApplication2
                 cmd.ExecuteNonQuery();
                con.Close();
 
-              Response.Write("Usuario Guardado Con Exito");
+              lblmensaje.Text="Guardado Con Exito";
             //  txthri.Text = "";
 
             //  lblmensaje.Text = "Usuario Guardado Con Exito";
@@ -263,7 +265,8 @@ namespace WebApplication2
 
             if (output == "1")
             {
-                Response.Write("El usuario ya existe ?");
+                lblmensaje.Text = "El Equipo ya esta Asignado";
+              //  Response.Write("");
                 // lblmensaje.Text = "El usuario ya existe ?";
                 //  jolosoy.Text = "";
             }
@@ -275,7 +278,7 @@ namespace WebApplication2
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                Response.Write("Usuario Guardado Con Exito");
+                lblmensaje.Text = "Equipo guardado con exito";
                 //  txthri.Text = "";
 
                 //  lblmensaje.Text = "Usuario Guardado Con Exito";
@@ -304,7 +307,7 @@ namespace WebApplication2
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                Response.Write("registro eLIMINADO CON EXITO");
+                lblmensaje.Text="ELIMINADO CON EXITO";
                 //  txthri.Text = "";
 
                 //  lblmensaje.Text = "Usuario Guardado Con Exito";
@@ -332,7 +335,7 @@ namespace WebApplication2
             cmd.ExecuteNonQuery();
             con.Close();
 
-            Response.Write("registro eLIMINADO CON EXITO");
+           lblmensaje.Text="ELIMINADO CON EXITO";
             //  txthri.Text = "";
 
             //  lblmensaje.Text = "Usuario Guardado Con Exito";
@@ -343,6 +346,17 @@ namespace WebApplication2
             BindGrid();
 
 
+        }
+
+        protected void btncHRI_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("HriCreate.aspx?Parameter=" + HRI);
+        }
+
+        protected void btnVovler_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HRIManager.aspx");
         }
     }
 

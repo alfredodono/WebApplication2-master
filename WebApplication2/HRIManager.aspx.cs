@@ -131,6 +131,7 @@ namespace WebApplication2
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
+                    lblmensaje.Text = "ELiminado Con Exito";
                 }
             }
             this.BindGrid();
@@ -139,11 +140,27 @@ namespace WebApplication2
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
-            int customerId = Convert.ToInt32(gdvEsp.DataKeys[e.RowIndex].Values[0]);
+
+            int customerId = Convert.ToInt32(gdvHRI.DataKeys[e.RowIndex].Values[0]);
             string constr = ConfigurationManager.ConnectionStrings["sqlServer"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("DELETE FROM EquipESP WHERE id = @CustomerId"))
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM dbo.HRI WHERE id_HRI = @CustomerId"))
+                {
+                    cmd.Parameters.AddWithValue("@CustomerId", customerId);
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    lblmensaje.Text = "Eliminado Con Exito";
+                }
+            }
+
+            customerId = Convert.ToInt32(gdvHRI.DataKeys[e.RowIndex].Values[0]);
+            constr = ConfigurationManager.ConnectionStrings["sqlServer"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM dbo.ima WHERE id_HRI = @CustomerId"))
                 {
                     cmd.Parameters.AddWithValue("@CustomerId", customerId);
                     cmd.Connection = con;
@@ -218,7 +235,7 @@ namespace WebApplication2
 
             gdvHRI.EditIndex = -1;
             this.BindGrid();
-
+            
             // Response.Write("Usuario Guardado Con Exito");
 
 
@@ -274,7 +291,7 @@ namespace WebApplication2
                 if (output == "1")
                 {
                     //Response.Write("El usuario ya existe ?");
-                    lblmensaje.Text = "El usuario ya existe ?";
+                    lblmensaje.Text = "El hri ya existe ?";
                     jolosoy.Text = "";
                 }
                 else
@@ -288,7 +305,7 @@ namespace WebApplication2
                     //  Response.Write("Usuario Guardado Con Exito");
                     txthri.Text = "";
 
-                    lblmensaje.Text = "Usuario Guardado Con Exito";
+                    lblmensaje.Text = "Creado Con Exito";
                     jolosoy.Text = "";
 
                 }
@@ -310,7 +327,7 @@ namespace WebApplication2
             if (output == "1")
             {
                 //Response.Write("El usuario ya existe ?");
-                lblmensaje.Text = "El usuario ya existe ?";
+                lblmensaje.Text = "El EquipoEsp ya existe ?";
                 jolosoy.Text = "";
             }
             else
@@ -324,7 +341,7 @@ namespace WebApplication2
                 //  Response.Write("Usuario Guardado Con Exito");
                 txthri.Text = "";
 
-                lblmensaje.Text = "Usuario Guardado Con Exito";
+                lblmensaje.Text = "Guardado Con Exito";
                 jolosoy.Text = "";
 
             }

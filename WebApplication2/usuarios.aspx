@@ -48,8 +48,10 @@
     </style>
  
     <form id="form1" runat="server">
-<nav class="navbar navbar-expand-lg navbar-light bg-lignt">
-        <a class="navbar-brand text-white " href="#">Nissan HRI</a>
+<nav class="navbar navbar-expand-lg navbar-light">
+       <%-- <a class="navbar-brand text-white " href="#">Nissan HRI</a>--%>
+         <asp:Button ID="Button1" class="navbar-brand text-white" BackColor="#800000" BorderStyle="None" runat="server" OnClick="btnHome_Click" Text="Nissan HRI" />
+          
         <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
         </button>
@@ -60,7 +62,7 @@
                     <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnAlerts" runat="server" Text="Alerts" />
                 </li>
                 <li class="nav-item active text-white">
-                    <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="btnHome" runat="server" Text="Home" />
+                    <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="btnHome" runat="server" OnClick="btnHome_Click" Text="Home" />
                 </li>
                 <li class="nav-item">
                     <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnUsers" runat="server" Text="Usuarios" OnClick="BtnUsers_Click" />

@@ -34,7 +34,8 @@ namespace WebApplication2
 
             else
             {
-                Response.Write("your username and password is wrong ?");
+                logg.Text = "Uuario y/o contraseña incorrectos";
+                //Response.Write("your username and password is wrong ?");
             }
 
         }

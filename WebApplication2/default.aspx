@@ -5,15 +5,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
 
     <link rel="shortcut icon" href="img/icon.ico" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>administrator HRI</title>
 </head>
 <body id="fondo">
-    <div class="container" align="center" id="form">
+    <div class="container"  id="form">
         <style>
             #fondo {
                 background-color: #800000;
@@ -49,10 +49,10 @@
                 <div class="col-md-5">
 
                     <img src="img/aad.png" id="img"
-                        width="280" height="400" class="card-img" alt="...">
+                        width="280" height="400" class="card-img" alt="..."/>
                 </div>
                 <div class="col-md-7">
-                    <div class="card-body">
+                    <div class="card-body text-center">
 
                         <h2 class=" text-center" style="font-family: Ginebra;">HRI ADMINISTRATOR</h2>
 
@@ -69,7 +69,8 @@
                             </div>
                             <div class="form-group">
                                 <asp:Button ID="btnlogin" class="btn btn-primary" runat="server" Text="Login" OnClick="btnlogin_Click"></asp:Button>
-                                
+                                    <h3><asp:Label ID="logg" runat="server" Text="" class="form-text text-danger"></asp:Label></h3>
+                                 
                             </div>
 
                         </form>

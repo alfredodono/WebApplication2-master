@@ -229,6 +229,9 @@ namespace WebApplication2
 
         }
 
-
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("welcome.aspx");
+        }
     }
 }

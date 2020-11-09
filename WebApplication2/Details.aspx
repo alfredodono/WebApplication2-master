@@ -102,11 +102,11 @@
             </div>
                   <div class="form-row text-center">
                         <div class="form-group col-md-2">
-                           <asp:Button ID="Button4" runat="server" Text="◄ Volver "  type="button" class="btn btn-warning btn-block" ForeColor="White" />
+                           <asp:Button ID="btnVovler" runat="server" Text="◄ Volver " OnClick="btnVovler_Click"  type="button" class="btn btn-warning btn-block" ForeColor="White" />
                            
                         </div>
                         <div class="form-group col-md-2">
-                            <asp:Button ID="Button2" runat="server" Text="Administrar preguntas 📝"  type="button" class="btn btn-success btn-block" ForeColor="White" />
+                            <asp:Button ID="btncHRI" runat="server" Text="Administrar preguntas 📝" OnClick="btncHRI_Click" type="button" class="btn btn-success btn-block" ForeColor="White" />
                            
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                        <div class="form-row">
                         <div class="form-group col-md-10">
                           
-                            <asp:TextBox ID="TextBox1"  placeholder="Ingrese IP" runat="server" class="form-control" OnTextChanged="FiltroIps"  AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1"  placeholder="Ingrese Nombre" runat="server" class="form-control" OnTextChanged="FiltroIps"  AutoPostBack="True"></asp:TextBox>
                         </div>
                         <div class="form-group col-md-2">
                             <asp:Button ID="Button3" runat="server" Text="Buscar"  type="button" class="btn btn-warning btn-block" ForeColor="White" />
@@ -440,18 +440,18 @@
                 <div class="row col-md-7">
                     <div class="col-md-8">
                         <p class="text-white">
-                            <br>
-                            <br>
+                            <br/>
+                            <br/>
                             <b>Nissan Mexicana             
-                                <br>
+                                <br/>
                                 <b>Extensiones Soporte: 2153,2154,2155,2156</b>
-                                <br>Nissan HRI Web Portal V0.1.1 (Release)
+                                <br/>Nissan HRI Web Portal V0.1.1 (Release)
                        
                         </p>
                     </div>
 
                     <div class="col-md-4">
-                        <img src="img/aad.png" alt="" height="200" width="200">
+                        <img src="img/aad.png" alt="" height="200" width="200"/>
                     </div>
 
                 </div>
