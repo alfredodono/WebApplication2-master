@@ -36,7 +36,7 @@
                 box-shadow: 0px 3px 14px 2px rgba(0, 0, 0, 0.75);
             }
 
-            #img {
+            #hola {
                 background-color: #800000;
             }
 
@@ -44,14 +44,13 @@
                 background-color: #800000;
             }
         </style>
-        <div id="formc" class="card mb-12" style="max-width: 800px;">
+        <div id="formc" class="card mb-12" style="max-width: 900px;">
             <div class="row no-gutters">
-                <div class="col-md-5">
+                <div id="hola" class="col-md-6" style="border-color:blue;">
 
-                    <img src="img/aad.png" id="img"
-                        width="280" height="400" class="card-img" alt="..."/>
+                    <img src="img/aaaa.png" id="img" width="400" height="400" class="card-img img-thumbnail" alt="..."/>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6 border border-dark">
                     <div class="card-body text-center">
 
                         <h2 class=" text-center" style="font-family: Ginebra;">HRI ADMINISTRATOR</h2>

@@ -64,7 +64,7 @@
                    
                 </li>
                  <li class="nav-item">
-                    <asp:Button class="nav-link text-white" BackColor="#800000"  BorderStyle="None" ID="BtnControl" runat="server" Text="Control" />
+                    <asp:Button class="nav-link text-white" BackColor="#800000"  BorderStyle="None" ID="BtnControl" runat="server" Text="Control" OnClick="BtnControl_Click" />
                     
                    
                 </li>
@@ -111,7 +111,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <img src="img/aad.png" alt="" height="200" width="200">
+                        <img src="img/aaaa.png" alt="" height="200" width="250">
                     </div>
 
                 </div>

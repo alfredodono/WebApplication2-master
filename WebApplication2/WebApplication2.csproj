@@ -96,6 +96,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ControlHRI.aspx" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-grid.min.css" />
     <Content Include="css\bootstrap-reboot.css" />
@@ -111,6 +112,7 @@
     <Content Include="icons\delete.png" />
     <Content Include="icons\edit.png" />
     <Content Include="icons\save.png" />
+    <Content Include="img\aaaa.png" />
     <Content Include="img\aad.png" />
     <Content Include="img\icon.ico" />
     <Content Include="img\Nissan.jpg" />
@@ -515,6 +517,7 @@
     <Content Include="jquery\Buttons-1.6.5\css\common.scss" />
     <Content Include="jquery\Buttons-1.6.5\css\mixins.scss" />
     <None Include="Properties\PublishProfiles\HRI.pubxml" />
+    <None Include="Properties\PublishProfiles\HRIM.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -537,6 +540,13 @@
     <Content Include="welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlHRI.aspx.cs">
+      <DependentUpon>ControlHRI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlHRI.aspx.designer.cs">
+      <DependentUpon>ControlHRI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

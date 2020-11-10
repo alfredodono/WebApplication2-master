@@ -50,5 +50,10 @@ namespace WebApplication2
         {
 
         }
+
+        protected void BtnControl_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ControlHRI.aspx");
+        }
     }
 }
