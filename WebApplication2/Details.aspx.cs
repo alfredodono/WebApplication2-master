@@ -358,6 +358,16 @@ namespace WebApplication2
         {
             Response.Redirect("HRIManager.aspx");
         }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Welcome.aspx");
+        }
+
+        protected void BtnControl_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ControlHRI.aspx");
+        }
     }
 
     

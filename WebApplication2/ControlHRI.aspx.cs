@@ -14,61 +14,69 @@ namespace WebApplication2
     public partial class ControlHRI : System.Web.UI.Page
     {
 
-
+        //nos carga la pagina
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] != null)
+            //aqui checa si tenemos alguna inicion iniciada si no nos redirecciona directo al login
+            if (Session["User"] != null)//checamos si hay alguna session
             {
+                //nos muestra el nombre del usuario en la aprte superior derecha
                 lblId.Text = "welcome " + Session["User"];
             }
             else
             {
+                //si no tenemos alguna session iniciada nos direcciona al login 
                 Response.Redirect("default.aspx");
             }
 
             if (!this.IsPostBack)
             {
+                //si recarga la pagina  actualiza los registros
                 this.BindGrid();
             }
+            //guardamos el nombre del usuario actual
             string usuario = "" + Session["User"];
-            if (usuario == "scp")
+            if (usuario == "scp")// cmparamos si es el administrador SCP
             {
+                //nos muestra la opcion de ditar usuarios
                 BtnUsers.Visible = true;
             }
             else
             {
+                //no nos la muestra
                 BtnUsers.Visible = false;
             }
+            //definimos los campos donde mostraremos los mensajes
             lblmensaje.Text = "";
             jolosoy.Text = "";
 
-            txtUser.Attributes.Add("readonly", "readonly");
-            txtHRI.Attributes.Add("readonly", "readonly");
+            txtUser.Attributes.Add("readonly", "readonly");//definimos este campo para poder manipularlo sin interrupciones
+            txtHRI.Attributes.Add("readonly", "readonly");//    ""          ""          ""              ""
         }
 
-        private void BindGrid()
+        private void BindGrid()//aqui solo actualiza las tablas para mostrar cualquier modificacion
         {
 
 
-
+            //tomamos el valor de la coneccion a la base de datos definida anteriormente en el web.config  
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ToString()))
-            {
+            {//declaramos el query
                 using (SqlCommand cmd = new SqlCommand("Select I.id_uhi as 'ID', U.n_user as 'User', H.Name_HRI as 'HRI' from Users U inner join UHI I on I.id_user=U.id_user inner join HRI H on I.id_HRI=H.id_HRI "))
-                {
+                {//declaramos un adaptador sql
                     using (SqlDataAdapter sda = new SqlDataAdapter())
-                    {
+                    {//hacemos la coneccion
                         cmd.Connection = con;
                         sda.SelectCommand = cmd;
                         using (DataTable dt = new DataTable())
                         {
-                            sda.Fill(dt);
-                            TablaRel.DataSource = dt;
-                            TablaRel.DataBind();
+                            sda.Fill(dt);//llenamos los  valores
+                            TablaRel.DataSource = dt;// "" ""
+                            TablaRel.DataBind(); //"" ""
                         }
                     }
                 }
             }
-
+            //hacemos lo mismo que la parte anterior pero con otra tabla
             using (SqlConnection cons = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ToString()))
             {
                 using (SqlCommand cmd = new SqlCommand("Select id_user as 'ID', n_user as 'Usuario' from dbo.users "))
@@ -87,7 +95,7 @@ namespace WebApplication2
                     }
                 }
             }
-
+            //lo mismo que anteriormente pero con otra tabla
             using (SqlConnection cons = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ToString()))
             {
                 using (SqlCommand cmd = new SqlCommand("Select id_HRI as 'ID', Name_HRI as 'HRI' from dbo.hri "))
@@ -107,37 +115,8 @@ namespace WebApplication2
                 }
             }
 
-
-            // try
-            // {
-
-
-            // con.Open();
-            //  String query = "Select id_user As 'id', n_user As 'Usuario', n_pass As 'Contraseña'  from dbo.users ";
-            // SqlCommand cmd = new SqlCommand(query, con);
-            //  SqlDataReader rdr = cmd.ExecuteReader();
-            //  gdvusuarios.DataSource = rdr;
-
-            //  gdvusuarios.DataBind();
-            //  gdvusuarios.Columns[1].HeaderText = "TextoAMostrarEnLaCabecera";
-
-            // }
-            // catch (Exception ex)
-            // {
-            //     Console.WriteLine("algo anda mal");
-            // }
-            // finally
-            // {
-            //    con.Close();
-            // }
-
         }
 
-
-
-
-
-       
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
@@ -160,6 +139,9 @@ namespace WebApplication2
             BindGrid();
         }
 
+
+        //Inician los Redireccionaminetos del menu
+
         protected void BtnUsers_Click(object sender, EventArgs e)
         {
             Response.Redirect("usuarios.aspx");
@@ -168,164 +150,14 @@ namespace WebApplication2
         {
             Response.Redirect("HRImanager.aspx");
         }
-
-
-
-        protected void OnRowEditing(object sender, GridViewEditEventArgs e)
+        protected void btnHome_Click(object sender, EventArgs e)
         {
-            //gdvHRI.EditIndex = e.NewEditIndex;
-            this.BindGrid();
-        }
-        protected void OnRowEditings(object sender, GridViewEditEventArgs e)
-        {
-            // gdvEsp.EditIndex = e.NewEditIndex;
-            this.BindGrid();
+            Response.Redirect("Welcome.aspx");
         }
 
-        protected void OnPaging(object sender, GridViewPageEventArgs e)
+        protected void BtnControl_Click(object sender, EventArgs e)
         {
-            // gdvHRI.PageIndex = e.NewPageIndex;
-
-            this.BindGrid();
-        }
-
-        protected void OnPagings(object sender, GridViewPageEventArgs e)
-        {
-            //gdvEsp.PageIndex = e.NewPageIndex;
-            this.BindGrid();
-        }
-        protected void OnUpdate(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ToString());
-
-            GridViewRow row = (sender as LinkButton).NamingContainer as GridViewRow;
-            string id = (row.Cells[0].Controls[0] as TextBox).Text;
-            string hri = (row.Cells[1].Controls[0] as TextBox).Text;
-            // string Password = (row.Cells[2].Controls[0] as TextBox).Text;
-
-
-            con.Open();
-            String query = "Update dbo.hri set Name_HRI='" + hri + "' where id_HRI='" + id + "'";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            // gdvHRI.EditIndex = -1;
-            this.BindGrid();
-
-            // Response.Write("Usuario Guardado Con Exito");
-
-
-
-        }
-
-        protected void OnCancel(object sender, EventArgs e)
-        {
-            // gdvHRI.EditIndex = -1;
-            this.BindGrid();
-        }
-
-        protected void OnUpdateEsp(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer2"].ToString());
-
-            GridViewRow row = (sender as LinkButton).NamingContainer as GridViewRow;
-            string id = (row.Cells[0].Controls[0] as TextBox).Text;
-            string Nombre = (row.Cells[1].Controls[0] as TextBox).Text;
-            // string Password = (row.Cells[2].Controls[0] as TextBox).Text;
-
-
-            con.Open();
-            String query = "Update dbo.EquipESP set Nombre='" + Nombre + "' where id='" + id + "'";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            // gdvEsp.EditIndex = -1;
-            this.BindGrid();
-
-            // Response.Write("Usuario Guardado Con Exito");
-
-
-
-        }
-
-        protected void OnCancelEsp(object sender, EventArgs e)
-        {
-            //gdvEsp.EditIndex = -1;
-            this.BindGrid();
-        }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ToString());
-
-            con.Open();
-            String query = "Select count (*) from dbo.hri where Name_HRI= '" + lblmensaje + "'";
-            SqlCommand cmd = new SqlCommand(query, con);
-            String output = cmd.ExecuteScalar().ToString();
-
-            if (output == "1")
-            {
-                //Response.Write("El usuario ya existe ?");
-                lblmensaje.Text = "El hri ya existe ?";
-                jolosoy.Text = "";
-            }
-            else
-            {
-
-                query = "Insert into dbo.HRI (Name_HRI) values ('" + lblmensaje + "')";
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-                //  Response.Write("Usuario Guardado Con Exito");
-                // txthri.Text = "";
-
-                lblmensaje.Text = "Creado Con Exito";
-                jolosoy.Text = "";
-
-            }
-
-            this.BindGrid();
-
-
-        }
-
-        protected void btnAddEsp_Click(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer2"].ToString());
-
-            con.Open();
-            String query = "Select count (*) from dbo.EquipESP where Nombre= '" + lblmensaje + "'";
-            SqlCommand cmd = new SqlCommand(query, con);
-            String output = cmd.ExecuteScalar().ToString();
-
-            if (output == "1")
-            {
-                //Response.Write("El usuario ya existe ?");
-                lblmensaje.Text = "El EquipoEsp ya existe ?";
-                jolosoy.Text = "";
-            }
-            else
-            {
-
-                query = "Insert into dbo.EquipESP (Nombre) values ('" + lblmensaje + "')";
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-                //  Response.Write("Usuario Guardado Con Exito");
-                //txthri.Text = "";
-
-                lblmensaje.Text = "Guardado Con Exito";
-                jolosoy.Text = "";
-
-            }
-
-            this.BindGrid();
-
-
+            Response.Redirect("ControlHRI.aspx");
         }
 
         protected void gdvHRI_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -341,6 +173,8 @@ namespace WebApplication2
             Session.Remove("User");
             Response.Redirect("default.aspx");
         }
+        //Terminan los direccionamientos del menu
+
 
         protected void TextBox2_TextChanged(object sender, EventArgs e)
         {
@@ -507,5 +341,7 @@ namespace WebApplication2
             }
 
         }
+
+       
     }
 }

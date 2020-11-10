@@ -304,6 +304,16 @@ namespace WebApplication2
 
         }
 
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("welcome.aspx");
+        }
+
+        protected void BtnControl_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ControlHRI.aspx");
+        }
+
         protected void gdvusuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int customerId = Convert.ToInt32(gdvusuarios.DataKeys[e.RowIndex].Values[0]);

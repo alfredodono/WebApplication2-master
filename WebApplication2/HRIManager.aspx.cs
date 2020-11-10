@@ -364,5 +364,15 @@ namespace WebApplication2
             Session.Remove("User");
             Response.Redirect("default.aspx");
         }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("welcome.aspx");
+        }
+
+        protected void BtnControl_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ControlHRI.aspx");
+        }
     }
 }

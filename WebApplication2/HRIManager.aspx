@@ -49,7 +49,7 @@
  
     <form id="form1" runat="server">
 <nav class="navbar navbar-expand-lg navbar-light bg-lignt">
-        <a class="navbar-brand text-white " href="#">Nissan HRI</a>
+        <asp:Button ID="Button2" class="navbar-brand text-white" BackColor="#800000" BorderStyle="None" runat="server" OnClick="btnHome_Click" Text="Nissan HRI" />
         <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
         </button>
@@ -60,7 +60,7 @@
                     <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnAlerts" runat="server" Text="Alerts" />
                 </li>
                 <li class="nav-item active text-white">
-                    <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="btnHome" runat="server" Text="Home" />
+                    <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="btnHome" runat="server" Text="Home" OnClick="btnHome_Click" />
                 </li>
                 <li class="nav-item">
                     <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnUsers" runat="server" Text="Usuarios" OnClick="BtnUsers_Click" />
@@ -73,7 +73,7 @@
                    
                 </li>
                  <li class="nav-item">
-                    <asp:Button class="nav-link text-white" BackColor="#800000"  BorderStyle="None" ID="BtnControl" runat="server" Text="Control" />
+                    <asp:Button class="nav-link text-white" BackColor="#800000"  BorderStyle="None" ID="BtnControl" runat="server" Text="Control" OnClick="BtnControl_Click" />
                     
                    
                 </li>

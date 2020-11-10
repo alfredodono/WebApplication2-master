@@ -46,14 +46,16 @@ namespace WebApplication2
             Response.Redirect("HRImanager.aspx");
         }
 
-        protected void btnHRI_Click1(object sender, EventArgs e)
-        {
-
-        }
+    
 
         protected void BtnControl_Click(object sender, EventArgs e)
         {
             Response.Redirect("ControlHRI.aspx");
+        }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("welcome.aspx");
         }
     }
 }

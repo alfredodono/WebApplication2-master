@@ -75,7 +75,7 @@
                    
                 </li>
                  <li class="nav-item">
-                    <asp:Button class="nav-link text-white" BackColor="#800000"  BorderStyle="None" ID="BtnControl" runat="server" Text="Control" />
+                    <asp:Button class="nav-link text-white" BackColor="#800000"  BorderStyle="None" ID="BtnControl" runat="server" Text="Control" OnClick="BtnControl_Click" />
                     
                    
                 </li>

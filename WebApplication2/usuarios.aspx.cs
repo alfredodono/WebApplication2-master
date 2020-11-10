@@ -233,5 +233,10 @@ namespace WebApplication2
         {
             Response.Redirect("welcome.aspx");
         }
+
+        protected void BtnControl_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ControlHRI.aspx");
+        }
     }
 }
