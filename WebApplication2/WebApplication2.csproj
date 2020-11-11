@@ -96,6 +96,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AlertsHRI.aspx" />
     <Content Include="ControlHRI.aspx" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-grid.min.css" />
@@ -115,6 +116,9 @@
     <Content Include="img\aaaa.png" />
     <Content Include="img\aad.png" />
     <Content Include="img\icon.ico" />
+    <Content Include="img\icos\aaaa.ico" />
+    <Content Include="img\icos\image.ico" />
+    <Content Include="img\image.png" />
     <Content Include="img\Nissan.jpg" />
     <Content Include="jquery\AutoFill-2.3.5\css\autoFill.bootstrap.css" />
     <Content Include="jquery\AutoFill-2.3.5\css\autoFill.bootstrap.min.css" />
@@ -540,6 +544,13 @@
     <Content Include="welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlertsHRI.aspx.cs">
+      <DependentUpon>AlertsHRI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlertsHRI.aspx.designer.cs">
+      <DependentUpon>AlertsHRI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ControlHRI.aspx.cs">
       <DependentUpon>ControlHRI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

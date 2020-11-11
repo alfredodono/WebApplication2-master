@@ -9,7 +9,7 @@
   <meta charset="UTF-8" />
     <title>Question Manager</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="shortcut icon" href="img/icon.ico" />
+<link rel="shortcut icon" href="img/icos/image.ico" />
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
@@ -75,7 +75,7 @@
             <div class="collapse navbar-collapse text-white  " id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto text-white">
                     <li class="nav-item active text-white">
-                        <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnAlerts" runat="server" Text="Alerts" />
+                        <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnAlerts" runat="server" Text="Alerts" OnClick="BtnAlerts_Click" />
                     </li>
                     <li class="nav-item active text-white">
                         <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="btnHomes" runat="server" Text="Home" OnClick="btnHome_Click" />
@@ -177,15 +177,16 @@
                             </div>
                             <div class="form-group col-md-10">
                                 <asp:Label ID="Label1" runat="server" Text="Es necesaria la foto?"></asp:Label>
-                                 <small id="checboxhelp" class="form-text text-muted">si es requerida marque la casilla </small>
+                                
                             </div>
                         </div>
-
-                    </div>
-                    <div class="text-center">
-                        <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save" onclick="btnSave_Click" />
+                        <div class="text-center">
+                         <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save" onclick="btnSave_Click" />
                    
                     </div>
+                       
+                    </div>
+                    
 
 
 
@@ -260,28 +261,25 @@
         </div>
     </form>
 
+    
 
-    <div id="">
-        <br />
-
-        <br />
+     <div id="hola ">
         <footer class="footer page-footer font-small   ">
-            <div >
-                <div class="row col-md-7">
+         
+            <div align="center">
+                <div class="row col-md-5">
                     <div class="col-md-8">
                         <p class="text-white">
-                            <br />
-                            <b>Nissan Mexicana             
-                                <br />
-                                <b>Extensiones Soporte: 2153,2154,2155,2156</b>
-                                <br />
-                                Nissan HRI Web Portal V0.1.1 (Release) </b>
-
+                            <br/>
+                        
+                            <b> Nissan Mexicana</b>
+                            <br/> <b>Extensiones Soporte: 2153,2154,2155,2156</b>
+                            <br/>Nissan HRI Web Portal V0.1.1 (Release)
                         </p>
                     </div>
 
                     <div class="col-md-4">
-                        <img src="img/aad.png" alt="" height="100" width="100" />
+                        <img src="img/image.png" alt="" height="150" width="200"/>
                     </div>
 
                 </div>
@@ -292,7 +290,6 @@
             </div>
 
         </footer>
-
     </div>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>

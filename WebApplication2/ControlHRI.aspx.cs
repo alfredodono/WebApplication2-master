@@ -314,8 +314,18 @@ namespace WebApplication2
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ToString());
             con.Open();
+
+            if(txtUser.Text=="" || txtHRI.Text=="")
+            {
+                lblmensaje.Text = "hay campos sin llenar";
+            }
+            else
+            {
+
+            
             int quepex = Convert.ToInt32(txtUser.Text);
             int quepox = Convert.ToInt32(txtHRI.Text);
+            
             String query = "Select count (*) from dbo.UHI where id_HRI= '" + quepox + "' and id_user= '"+quepex+"'";
             SqlCommand cmd = new SqlCommand(query, con);
             String output = cmd.ExecuteScalar().ToString();
@@ -331,7 +341,7 @@ namespace WebApplication2
                 query = "Insert into dbo.UHI (id_HRI, id_user) values ('" + quepox + "' , '" + quepex + "')";
                 cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
-                con.Close();
+              
 
                 BindGrid();
                 lblmensaje.Text = "Guardado Con Exito";
@@ -339,9 +349,14 @@ namespace WebApplication2
                 txtUser.Text = "";
                 txtHRI.Text = "";
             }
+                con.Close();
 
+            }
         }
 
-       
+        protected void BtnAlerts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AlertsHRI.aspx");
+        }
     }
 }

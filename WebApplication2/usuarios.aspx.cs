@@ -71,28 +71,6 @@ namespace WebApplication2
             }
 
 
-           // try
-           // {
-
-
-               // con.Open();
-              //  String query = "Select id_user As 'id', n_user As 'Usuario', n_pass As 'Contraseña'  from dbo.users ";
-               // SqlCommand cmd = new SqlCommand(query, con);
-              //  SqlDataReader rdr = cmd.ExecuteReader();
-              //  gdvusuarios.DataSource = rdr;
-
-              //  gdvusuarios.DataBind();
-              //  gdvusuarios.Columns[1].HeaderText = "TextoAMostrarEnLaCabecera";
-
-           // }
-           // catch (Exception ex)
-           // {
-           //     Console.WriteLine("algo anda mal");
-           // }
-           // finally
-           // {
-            //    con.Close();
-           // }
         }
         protected void OnPaging(object sender, GridViewPageEventArgs e)
         {
@@ -180,6 +158,15 @@ namespace WebApplication2
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlServer"].ToString());
+            if(txtUser.Text=="" || txtPass.Text=="")
+            {
+                lblmensaje.Text = "!!Falta llenar algun campo!!";
+            }
+            else
+            {
+
+        
+
             if (txtPass.Text == txtPass2.Text)
             {
                 con.Open();
@@ -222,8 +209,8 @@ namespace WebApplication2
                 lblmensaje.Text = "";
             }
 
-            
 
+            }
 
 
 
@@ -238,5 +225,11 @@ namespace WebApplication2
         {
             Response.Redirect("ControlHRI.aspx");
         }
+
+        protected void BtnAlerts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AlertsHRI.aspx");
+        }
+
     }
 }

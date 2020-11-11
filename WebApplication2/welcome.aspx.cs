@@ -57,5 +57,10 @@ namespace WebApplication2
         {
             Response.Redirect("welcome.aspx");
         }
+
+        protected void BtnAlerts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AlertsHRI.aspx");
+        }
     }
 }

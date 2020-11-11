@@ -174,49 +174,66 @@ namespace WebApplication2
        
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            String user = txtUser.Text.ToUpper();
 
-            int a;
-            if (Cb1.Checked)
+            if(txtUser.Text=="" )
             {
-                a = 1;
+                jolosoy.Text = "falta ingresar un campo";
             }
             else
+            
             {
-                a = 0;
-            }
-
-
-            using (Stream fs = fuimage.PostedFile.InputStream)
-            {
-                using (BinaryReader br = new BinaryReader(fs))
+                if (fuimage.HasFile)
                 {
-                    byte[] bytes = br.ReadBytes((Int32)fs.Length);
-                    string constr = ConfigurationManager.ConnectionStrings["sqlServer"].ConnectionString;
-                    using (SqlConnection con = new SqlConnection(constr))
+                    String user = txtUser.Text.ToUpper();
+
+                    int a;
+                    if (Cb1.Checked)
                     {
-                        string query = "Insert into dbo.ima values (@Question, @Picture, @id_HRI, @active, @req)";
-                        using (SqlCommand cmd = new SqlCommand(query))
+                        a = 1;
+                    }
+                    else
+                    {
+                        a = 0;
+                    }
+
+
+                    using (Stream fs = fuimage.PostedFile.InputStream)
+                    {
+                        using (BinaryReader br = new BinaryReader(fs))
                         {
-                            cmd.Connection = con;
-                            cmd.Parameters.AddWithValue("@Question", user);
-                            cmd.Parameters.AddWithValue("@Picture", bytes);
-                            cmd.Parameters.AddWithValue("@id_HRI", HRI);
-                            cmd.Parameters.AddWithValue("@active", '1');
-                            cmd.Parameters.AddWithValue("@req", a);
-                            con.Open();
-                            cmd.ExecuteNonQuery();
-                            con.Close();
+                            byte[] bytes = br.ReadBytes((Int32)fs.Length);
+                            string constr = ConfigurationManager.ConnectionStrings["sqlServer"].ConnectionString;
+                            using (SqlConnection con = new SqlConnection(constr))
+                            {
+                                string query = "Insert into dbo.ima values (@Question, @Picture, @id_HRI, @active, @req)";
+                                using (SqlCommand cmd = new SqlCommand(query))
+                                {
+                                    cmd.Connection = con;
+                                    cmd.Parameters.AddWithValue("@Question", user);
+                                    cmd.Parameters.AddWithValue("@Picture", bytes);
+                                    cmd.Parameters.AddWithValue("@id_HRI", HRI);
+                                    cmd.Parameters.AddWithValue("@active", '1');
+                                    cmd.Parameters.AddWithValue("@req", a);
+                                    con.Open();
+                                    cmd.ExecuteNonQuery();
+                                    con.Close();
+                                }
+                            }
                         }
                     }
+
+
+                    BindGrid();
                 }
+                else
+                {
+                    jolosoy.Text = "falta subir alguna imagen";
+                }
+           
+            
             }
 
-        
-            BindGrid();
-              
-          
-                }
+        }
 
         protected void gdvusuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
@@ -235,6 +252,11 @@ namespace WebApplication2
         protected void BtnControl_Click(object sender, EventArgs e)
         {
             Response.Redirect("ControlHRI.aspx");
+        }
+
+        protected void BtnAlerts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AlertsHRI.aspx");
         }
     }
 }

@@ -87,29 +87,6 @@ namespace WebApplication2
                     }
                 }
 
-
-                // try
-                // {
-
-
-                // con.Open();
-                //  String query = "Select id_user As 'id', n_user As 'Usuario', n_pass As 'Contraseña'  from dbo.users ";
-                // SqlCommand cmd = new SqlCommand(query, con);
-                //  SqlDataReader rdr = cmd.ExecuteReader();
-                //  gdvusuarios.DataSource = rdr;
-
-                //  gdvusuarios.DataBind();
-                //  gdvusuarios.Columns[1].HeaderText = "TextoAMostrarEnLaCabecera";
-
-                // }
-                // catch (Exception ex)
-                // {
-                //     Console.WriteLine("algo anda mal");
-                // }
-                // finally
-                // {
-                //    con.Close();
-                // }
             
         }
        
@@ -287,7 +264,13 @@ namespace WebApplication2
                 String query = "Select count (*) from dbo.hri where Name_HRI= '" + txthri.Text + "'";
                 SqlCommand cmd = new SqlCommand(query, con);
                 String output = cmd.ExecuteScalar().ToString();
+                 if(txthri.Text=="")
+            {
+                lblmensaje.Text = "falta ingresar el nombre";
+            }
+            else{
 
+           
                 if (output == "1")
                 {
                     //Response.Write("El usuario ya existe ?");
@@ -300,19 +283,21 @@ namespace WebApplication2
                     query = "Insert into dbo.HRI (Name_HRI) values ('" + txthri.Text + "')";
                     cmd = new SqlCommand(query, con);
                     cmd.ExecuteNonQuery();
-                    con.Close();
+                    
 
                     //  Response.Write("Usuario Guardado Con Exito");
                     txthri.Text = "";
 
                     lblmensaje.Text = "Creado Con Exito";
                     jolosoy.Text = "";
+                    txthri.Text = "";
 
                 }
 
                 this.BindGrid();
 
-
+            }
+            con.Close();
         }
 
         protected void btnAddEsp_Click(object sender, EventArgs e)
@@ -323,7 +308,13 @@ namespace WebApplication2
             String query = "Select count (*) from dbo.EquipESP where Nombre= '" + txtEquipo.Text + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             String output = cmd.ExecuteScalar().ToString();
+            if (txtEquipo.Text == "")
+            {
+                lblmensaje.Text = "Ingrese Un equipo Valido";
+            }else
+            {
 
+           
             if (output == "1")
             {
                 //Response.Write("El usuario ya existe ?");
@@ -336,19 +327,20 @@ namespace WebApplication2
                 query = "Insert into dbo.EquipESP (Nombre) values ('" + txtEquipo.Text + "')";
                 cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
-                con.Close();
+               
 
                 //  Response.Write("Usuario Guardado Con Exito");
                 txthri.Text = "";
 
                 lblmensaje.Text = "Guardado Con Exito";
                 jolosoy.Text = "";
+                    txtEquipo.Text = "";
 
             }
 
             this.BindGrid();
-          
-
+            }
+            con.Close();
         }
 
         protected void gdvHRI_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -373,6 +365,11 @@ namespace WebApplication2
         protected void BtnControl_Click(object sender, EventArgs e)
         {
             Response.Redirect("ControlHRI.aspx");
+        }
+
+        protected void BtnAlerts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AlertsHRI.aspx");
         }
     }
 }

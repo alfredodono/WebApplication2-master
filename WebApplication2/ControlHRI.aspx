@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <title>HRI Manager</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="shortcut icon" href="img/icon.ico" />
+ <link rel="shortcut icon" href="img/icos/image.ico" />
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.5.1.min.js"></script>
@@ -55,7 +55,7 @@
             <div class="collapse navbar-collapse text-white  " id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto text-white">
                     <li class="nav-item active text-white">
-                        <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnAlerts" runat="server" Text="Alerts" />
+                        <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnAlerts" runat="server" Text="Alerts" OnClick="BtnAlerts_Click" />
                     </li>
                     <li class="nav-item active text-white">
                         <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="btnHomes" runat="server" Text="Home" OnClick="btnHome_Click" />
@@ -90,10 +90,10 @@
 
             </div>
         </nav>
+        <div class="text-center">
 
-
-        <div id="centrado" class="card mb-12">
-            <h2>HRI Manager</h2>
+      
+        <h2>HRI Manager</h2>
             <div class="text-center">
                 <h2>
                     <asp:Label ID="lblmensaje" class="badge badge-warning" runat="server" Text=""></asp:Label>
@@ -106,9 +106,12 @@
 
                 </h2>
             </div>
+              </div>
+        <div id="centrado" class="mb-12">
+            
             <div class="row">
 
-                <div class="col-md-3 card" style="padding-left: 1rem;">
+                <div class="col-md-3 " style="padding-left: 1rem;">
 
                     <div class="text-center">
                         <h3>
@@ -359,24 +362,23 @@
     </div>
      
 
-    <div id="hola ">
-        <footer class="footer page-footer font-small sticky-footer ">
+     <div id="hola ">
+        <footer class="footer page-footer font-small  fixed-bottom ">
+         
             <div align="center">
-                <div class="row col-md-7">
+                <div class="row col-md-5">
                     <div class="col-md-8">
                         <p class="text-white">
-                            <br />
-                            <br />
-                            <b>Nissan Mexicana             
-                                <br />
-                                <b>Extensiones Soporte: 2153,2154,2155,2156</b>
-                                <br />Nissan HRI Web Portal V0.1.1 (Release)
-                       
+                            <br/>
+                        
+                            <b> Nissan Mexicana</b>
+                            <br/> <b>Extensiones Soporte: 2153,2154,2155,2156</b>
+                            <br/>Nissan HRI Web Portal V0.1.1 (Release)
                         </p>
                     </div>
 
                     <div class="col-md-4">
-                        <img src="img/aad.png" alt="" height="200" width="200" />
+                        <img src="img/image.png" alt="" height="150" width="200"/>
                     </div>
 
                 </div>

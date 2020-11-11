@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/bootstrap.css"/>
 
-    <link rel="shortcut icon" href="img/icon.ico" />
+   <link rel="shortcut icon" href="img/icos/image.ico" />
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>administrator HRI</title>
@@ -43,12 +43,15 @@
             .btn-primary {
                 background-color: #800000;
             }
+            .img{
+                 background-color: #800000;
+            }
         </style>
-        <div id="formc" class="card mb-12" style="max-width: 900px;">
+        <div id="formc" class="card mb-12" style="max-width: 800px;">
             <div class="row no-gutters">
                 <div id="hola" class="col-md-6" style="border-color:blue;">
 
-                    <img src="img/aaaa.png" id="img" width="400" height="400" class="card-img img-thumbnail" alt="..."/>
+                    <img src="img/image.png" id="img" width="400" height="350" class="card-img " alt="..."/>
                 </div>
                 <div class="col-md-6 border border-dark">
                     <div class="card-body text-center">

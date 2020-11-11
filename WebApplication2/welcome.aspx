@@ -9,7 +9,7 @@
     <title>Welcome</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
-       <link rel="shortcut icon" href="img/icon.ico" />
+     <link rel="shortcut icon" href="img/icos/image.ico" />
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.5.1.min.js"></script>
@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse text-white  " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto text-white">
                   <li class="nav-item active text-white">
-                    <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnAlerts" runat="server" Text="Alerts" />
+                    <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="BtnAlerts" runat="server" Text="Alerts" OnClick="BtnAlerts_Click" />
                 </li>
                 <li class="nav-item active text-white">
                     <asp:Button class="nav-link text-white" BackColor="#800000" BorderStyle="None" ID="btnHomes" runat="server" Text="Home" OnClick="btnHome_Click" />
@@ -84,7 +84,7 @@
         </div>
     </nav>
     <div>
-   
+    
     </div>
         
     </form>
@@ -102,16 +102,16 @@
                 <div class="row col-md-5">
                     <div class="col-md-8">
                         <p class="text-white">
-                            <br>
-                            <br>
+                            <br/>
+                        
                             <b> Nissan Mexicana</b>
-                            <br> <b>Extensiones Soporte: 2153,2154,2155,2156</b>
-                            <br>Nissan HRI Web Portal V0.1.1 (Release)
+                            <br/> <b>Extensiones Soporte: 2153,2154,2155,2156</b>
+                            <br/>Nissan HRI Web Portal V0.1.1 (Release)
                         </p>
                     </div>
 
                     <div class="col-md-4">
-                        <img src="img/aaaa.png" alt="" height="200" width="250">
+                        <img src="img/image.png" alt="" height="150" width="200"/>
                     </div>
 
                 </div>

@@ -314,6 +314,11 @@ namespace WebApplication2
             Response.Redirect("ControlHRI.aspx");
         }
 
+        protected void BtnAlerts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AlertsHRI.aspx");
+        }
+
         protected void gdvusuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int customerId = Convert.ToInt32(gdvusuarios.DataKeys[e.RowIndex].Values[0]);
