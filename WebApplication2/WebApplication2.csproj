@@ -115,10 +115,14 @@
     <Content Include="icons\save.png" />
     <Content Include="img\aaaa.png" />
     <Content Include="img\aad.png" />
+    <Content Include="img\adds.png" />
+    <Content Include="img\check.png" />
+    <Content Include="img\check1.png" />
     <Content Include="img\icon.ico" />
     <Content Include="img\icos\aaaa.ico" />
     <Content Include="img\icos\image.ico" />
     <Content Include="img\image.png" />
+    <Content Include="img\lent.png" />
     <Content Include="img\Nissan.jpg" />
     <Content Include="jquery\AutoFill-2.3.5\css\autoFill.bootstrap.css" />
     <Content Include="jquery\AutoFill-2.3.5\css\autoFill.bootstrap.min.css" />

@@ -111,7 +111,7 @@
             
             <div class="row">
 
-                <div class="col-md-3 " style="padding-left: 1rem;">
+                <div class="col-md-4 " style="">
 
                     <div class="text-center">
                         <h3>

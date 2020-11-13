@@ -115,7 +115,7 @@
                     <div class="form-row text-center">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Status</label>
-                            <asp:DropDownList ID="dlist1" class="control " runat="server">
+                            <asp:DropDownList ID="dpcheck" OnTextChanged="dpcheck_TextChanged" AutoPostBack="True" class="control " runat="server">
                                 <asp:ListItem>All</asp:ListItem>
                                 <asp:ListItem>OK</asp:ListItem>
                                 <asp:ListItem>Check</asp:ListItem>
@@ -123,16 +123,16 @@
                             </asp:DropDownList>
 
                             <label for="inputEmail4">From </label>
-                            <asp:TextBox ID="TextBox2" TextMode="Date" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtfrom" OnTextChanged="txtfrom_TextChanged" TextMode="Date" runat="server" AutoPostBack="True"></asp:TextBox>
                             <label for="inputEmail4">To </label>
-                            <asp:TextBox ID="TextBox3" TextMode="Date" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="Txtto" TextMode="Date" OnTextChanged="txtfrom_TextChanged" AutoPostBack="True" runat="server"></asp:TextBox>
                             <label for="inputEmail4" class="col-md-1"></label>
 
                             <%--<asp:TextBox ID="TextBox4"  class="col-md-2" runat="server"></asp:TextBox>--%>
                         </div>
 
                         <div class="form-group col-md-2">
-                            <asp:TextBox ID="TextBox5" placeholder="Buscar" class="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox5" placeholder="Buscar" OnTextChanged="TextBox5_TextChanged" AutoPostBack="true" class="form-control" runat="server"></asp:TextBox>
                         </div>
                         <div class="form-group col-md-2">
                             <asp:Button ID="Button1" runat="server" Text="Buscar" type="button" class="btn btn-warning btn-block" ForeColor="White" />
@@ -150,32 +150,32 @@
 
                     <div class="col-md-8 " style="padding-left: 1rem;">
 
-                        
 
-                        
+
+
                         <table class="table table-bordered table-striped" border="1" style="border-collapse: collapse;">
                             <tbody>
                                 <tr style="color: White; background-color: Maroon; border-style: None;">
-                                    <td class="" style="width:10px;">Id
+                                    <td class="" style="width: 50px;">Id
                                     </td>
                                     <td class="" style="width: 100px;">
                                         <label>HRI</label>
                                     </td>
-                                    <td class="" style="width: 5px;">Machine Name
+                                    <td class="" style="width: 50px;">Machine Name
                                     </td>
-                                    <td class="" style="width: 5px;">Equipo Especial
+                                    <td class="" style="width: 200px;">Equipo Especial
                                     </td>
-                                    <td class="" style="width: 5px;">Question
+                                    <td class="" style="width: 300px;">Question
                                     </td>
-                                    <td class="" style="width: 5px;">Date
+                                    <td class="" style="width: 1px;">Date
                                     </td>
-                                    <td class="" style="width: 5px;">Status
+                                    <td class="" style="width: 1px;">Status
                                     </td>
-                                    <td class="" style="width: 5px;">HEX
+                                    <td class="" style="width: 1px;">HEX
                                     </td>
-                                    <td class="" style="width: 5px;">Foto
+                                    <td class="" style="width: 1px;">Foto
                                     </td>
-                                       <td class="" style="width: 5px;">Check
+                                    <td class="" style="width: 1px;">Check
                                     </td>
 
 
@@ -187,24 +187,29 @@
                             <%--                    <asp:TextBox ID="txtid" runat="server"></asp:TextBox>--%>
 
                             <asp:Label ID="cabecera" runat="server"></asp:Label>
-                            <asp:GridView ID="gdvAnswer" DataKeyNames="ID"  class="thead-dark text-center" ShowHeader="false" CssClass="table table-bordered table-striped " RowHeaderColumn="hola, prros" AutoGenerateColumns="false" runat="server">
+                            <asp:GridView ID="gdvAnswer" DataKeyNames="ID" OnRowUpdating="gdvAnswer_RowUpdating" OnRowDataBound="gdvAnswer_RowDataBound" OnRowDeleting="gdvAnswer_RowDeleting" class="thead-dark text-center" ShowHeader="false" CssClass="table table-bordered table-striped " RowHeaderColumn="hola, prros" AutoGenerateColumns="false" runat="server">
 
                                 <Columns>
                                     <asp:BoundField DataField="ID" ItemStyle-CssClass="text-center" HeaderText="ID" />
                                     <asp:BoundField DataField="NameHRI" ItemStyle-CssClass="text-center" HeaderText="NameHRI" />
                                     <asp:BoundField DataField="Machine_Name" ItemStyle-CssClass="text-center" HeaderText="Machine_Name" />
-                                     <asp:BoundField DataField="EquipoEspecial" ItemStyle-CssClass="text-center" HeaderText="EquipoEspecial" />
-                                     <asp:BoundField DataField="question" ItemStyle-CssClass="text-center" HeaderText="question" />
-                                     <asp:BoundField DataField="Date" ItemStyle-CssClass="text-center" HeaderText="Date" />
-                                     <asp:BoundField DataField="status" ItemStyle-CssClass="text-center" HeaderText="status" />
-                                     <asp:BoundField DataField="foto" ItemStyle-CssClass="text-center" HeaderText="foto" />
+                                    <asp:BoundField DataField="EquipoEspecial" ItemStyle-CssClass="text-center" HeaderText="EquipoEspecial" />
+                                    <asp:BoundField DataField="question" ItemStyle-CssClass="text-center" HeaderText="question" />
+                                    <asp:BoundField DataField="Date" ItemStyle-CssClass="text-center" HeaderText="Date" />
+                                    <asp:BoundField DataField="status" ItemStyle-CssClass="text-center" HeaderText="status" />
+                                    <asp:TemplateField HeaderText="foto">
+                                        <ItemTemplate>
+                                            <asp:Image ID="Image1" runat="server" Width="40" Height="40"  ImageUrl="~/img/adds.png" />
+                                        </ItemTemplate>
 
-                                    <asp:TemplateField HeaderText="Delete">
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="Update">
                                         <ItemTemplate>
 
                                             <h2>
-                                                <asp:LinkButton Text="dc" runat="server" CommandName="Delete">
-                                        <img src="icons/cancel.png" width="40" height="40"> </asp:LinkButton>
+                                                <asp:LinkButton Text="dc" runat="server" CommandName="Update">
+                                        <img src="img/lent.png" width="40" height="40"> </asp:LinkButton>
                                             </h2>
 
                                         </ItemTemplate>
@@ -214,12 +219,20 @@
                                         <ItemTemplate>
 
                                             <h2>
-                                                <asp:LinkButton Text="dc" runat="server" CommandName="Delete">
-                                        <img src="icons/cancel.png" width="40" height="40"> </asp:LinkButton>
+                                                <asp:LinkButton runat="server" CommandName="Delete">
+                                                     <asp:Image ID="hol" runat="server" Width="40" Height="40"  ImageUrl="img/check.png" />
+                                                    
+                                                </asp:LinkButton>
                                             </h2>
 
                                         </ItemTemplate>
 
+                                    </asp:TemplateField>
+                                    <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
+                                                CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
+                                        </ItemTemplate>
                                     </asp:TemplateField>
 
 
@@ -240,65 +253,27 @@
 
                         <div class="text-center">
                             <h3>
-                                <asp:Label ID="Label1" runat="server" Text="Usuarios"></asp:Label>
+                                <asp:Label ID="Label1" runat="server" Text="Visualizar imagen"></asp:Label>
                             </h3>
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-8">
 
-                                <asp:TextBox ID="txbUsuarios" placeholder="Ingrese Nombre" runat="server" class="form-control" AutoPostBack="True"></asp:TextBox>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <asp:Button ID="btnUser" runat="server" Text="Buscar" type="button" class="btn btn-warning btn-block" ForeColor="White" />
 
-                            </div>
-                        </div>
-                        <table class="table table-bordered table-striped" border="1" style="border-collapse: collapse;">
-                            <tbody>
-                                <tr style="color: White; background-color: Maroon; border-style: None;">
-                                    <td class="" style="width: 100px;">Id
-                                    </td>
-                                    <td class="" style="width: 200px;">
-                                        <label>Nombre</label>
-                                    </td>
-
-                                    <td class="" style="width: 5px;">Agregar
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
                         <div class="text-center" style="height: 400px; width: auto; overflow: auto;">
 
                             <%--                    <asp:TextBox ID="txtid" runat="server"></asp:TextBox>--%>
 
-                            <asp:Label ID="Label2" runat="server"></asp:Label>
-                            <asp:GridView ID="tablaus" DataKeyNames="ID" class="thead-dark text-center" ShowHeader="false" CssClass="table table-bordered table-striped " RowHeaderColumn="hola, prros" AutoGenerateColumns="false" runat="server">
 
-                                <Columns>
-                                    <asp:BoundField DataField="ID" ItemStyle-CssClass="text-center" HeaderText="ID" />
-                                    <asp:BoundField DataField="Usuario" ItemStyle-CssClass="text-center" HeaderText="Usuario" />
+                            <asp:Image ID="Image2" runat="server" Width="400" Height="400" ImageUrl="~/img/aaaa.png" />
 
+                        </div>
 
-                                    <asp:TemplateField HeaderText="Delete">
-                                        <ItemTemplate>
-
-                                            <h2>
-                                                <asp:LinkButton Text="dc" runat="server" CommandName="Delete">
-                                        <img src="icons/add.png" width="40" height="40"> </asp:LinkButton>
-                                            </h2>
-
-                                        </ItemTemplate>
-
-                                    </asp:TemplateField>
+                        <div class="text-center">
+                            <h3>
+                                <asp:Label ID="txterror" runat="server" Text=""></asp:Label></h3>
 
 
-                                </Columns>
-
-                                <HeaderStyle BackColor="Maroon" BorderStyle="None" ForeColor="White" />
-                            </asp:GridView>
-
+                            
                         </div>
 
                     </div>
@@ -306,7 +281,7 @@
                 </div>
 
             </div>
-             </div>
+        </div>
     </form>
 
 
@@ -316,7 +291,7 @@
 
 
     <div id="hola ">
-        <footer class="footer page-footer font-small  fixed-bottom ">
+        <footer class="footer page-footer font-small   ">
 
             <div align="center">
                 <div class="row col-md-5">

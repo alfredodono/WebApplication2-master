@@ -25,7 +25,7 @@ namespace WebApplication2
             }
             else
             {
-                //si no tenemos alguna session iniciada nos direcciona al login 
+                //si no textbox2enemos alguna session iniciada nos direcciona al login 
                 Response.Redirect("default.aspx");
             }
 

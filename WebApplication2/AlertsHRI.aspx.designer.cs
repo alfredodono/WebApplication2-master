@@ -112,31 +112,31 @@ namespace WebApplication2 {
         protected global::System.Web.UI.WebControls.Label jolosoy;
         
         /// <summary>
-        /// Control dlist1.
+        /// Control dpcheck.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlist1;
+        protected global::System.Web.UI.WebControls.DropDownList dpcheck;
         
         /// <summary>
-        /// Control TextBox2.
+        /// Control txtfrom.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtfrom;
         
         /// <summary>
-        /// Control TextBox3.
+        /// Control Txtto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox Txtto;
         
         /// <summary>
         /// Control TextBox5.
@@ -184,39 +184,21 @@ namespace WebApplication2 {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control txbUsuarios.
+        /// Control Image2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbUsuarios;
+        protected global::System.Web.UI.WebControls.Image Image2;
         
         /// <summary>
-        /// Control btnUser.
+        /// Control txterror.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUser;
-        
-        /// <summary>
-        /// Control Label2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// Control tablaus.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView tablaus;
+        protected global::System.Web.UI.WebControls.Label txterror;
     }
 }
