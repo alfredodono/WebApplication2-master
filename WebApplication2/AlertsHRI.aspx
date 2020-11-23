@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="UTF-8" />
-    <title>Welcome</title>
+    <title>Alerts Control</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="shortcut icon" href="img/icos/image.ico" />
@@ -167,15 +167,17 @@
                                     </td>
                                     <td class="" style="width: 300px;">Question
                                     </td>
-                                    <td class="" style="width: 1px;">Date
+                                    <td class="" style="width: 1px;">fecha
                                     </td>
-                                    <td class="" style="width: 1px;">Status
+                                    <td class="" style="width: 1px;">status
                                     </td>
-                                    <td class="" style="width: 1px;">HEX
+                                    <td class="" style="width: 1px;">foto
                                     </td>
-                                    <td class="" style="width: 1px;">Foto
+                                    <td class="" style="width: 1px;">visualizar
                                     </td>
-                                    <td class="" style="width: 1px;">Check
+                                    <td class="" style="width: 1px;">checado
+                                    </td>
+                                    <td class="" style="width: 1px;">Download
                                     </td>
 
 
@@ -248,9 +250,9 @@
                     <br />
 
 
-
+                   
                     <div class="col-md-3 " style="">
-
+                    <br />
                         <div class="text-center">
                             <h3>
                                 <asp:Label ID="Label1" runat="server" Text="Visualizar imagen"></asp:Label>
@@ -264,7 +266,7 @@
                             <%--                    <asp:TextBox ID="txtid" runat="server"></asp:TextBox>--%>
 
 
-                            <asp:Image ID="Image2" runat="server" Width="400" Height="400" ImageUrl="~/img/aaaa.png" />
+                            <asp:Image ID="Image2" runat="server" Width="300" Height="300" ImageUrl="~/img/aaaa.png" />
 
                         </div>
 
@@ -278,7 +280,7 @@
 
                     </div>
 
-                </div>
+                
 
             </div>
         </div>

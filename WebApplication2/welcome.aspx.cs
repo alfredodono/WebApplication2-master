@@ -14,7 +14,7 @@ namespace WebApplication2
             if(Session["User"] !=null)
             {
          
-               lblId.Text ="welcome " + Session["User"];
+               lblId.Text =""+ Session["User"];
             }
             else
             {

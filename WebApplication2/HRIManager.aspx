@@ -256,7 +256,7 @@
     <br />
     <br />
    <div id="hola ">
-        <footer class="footer page-footer font-small fixed-bottom  ">
+        <footer class="footer page-footer font-small ">
          
             <div align="center">
                 <div class="row col-md-5">

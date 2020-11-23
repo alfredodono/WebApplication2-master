@@ -255,7 +255,7 @@
                                     <ItemTemplate>
 
                                         <h2>
-                                            <asp:LinkButton Text="dc" runat="server" CommandName="Update">
+                                            <asp:LinkButton Text="dc" runat="server" OnClientClick="return confirm('Do you want to delete this ?');" CommandName="Update">
                                         <img src="icons/cancel.png" width="40" height="40"> </asp:LinkButton>
                                         </h2>
 
@@ -402,7 +402,7 @@
                                     <ItemTemplate>
 
                                         <h2>
-                                            <asp:LinkButton Text="dc" runat="server" CommandName="Update">
+                                            <asp:LinkButton Text="dc" OnClientClick="return confirm('Do you want to delete this ?');" runat="server" CommandName="Update">
                                         <img src="icons/cancel.png" width="40" height="40"> </asp:LinkButton>
                                         </h2>
 

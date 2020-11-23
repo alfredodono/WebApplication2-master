@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="UTF-8" />
-    <title>HRI Manager</title>
+    <title>Control</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
  <link rel="shortcut icon" href="img/icos/image.ico" />
     <script src="js/bootstrap.min.js"></script>
@@ -78,6 +78,7 @@
 
 
                 </ul>
+           
                 <div id="yo">
                     <asp:Label ID="lblId" runat="server"></asp:Label>
 
@@ -93,7 +94,7 @@
         <div class="text-center">
 
       
-        <h2>HRI Manager</h2>
+            <h2>Control HRI</h2>
             <div class="text-center">
                 <h2>
                     <asp:Label ID="lblmensaje" class="badge badge-warning" runat="server" Text=""></asp:Label>
@@ -363,7 +364,7 @@
      
 
      <div id="hola ">
-        <footer class="footer page-footer font-small  fixed-bottom ">
+        <footer class="footer page-footer font-small  ">
          
             <div align="center">
                 <div class="row col-md-5">
